@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{%block title%}Cтатьи{%endblock%}
+
+{%block content%}
+<div class="container mt-5">
+
+<div class="container pricing-header p-3 pb-md-4 mx-auto text-center"><font style="vertical-align: inherit;"></font><font style="vertical-align: inherit;"><h1>Все статьи на сайте</h1></font><font style="vertical-align: inherit;"></font></font>
+</div>
+  {%if post|length>0%}
+
+    {% for el in post%}
+     <div class="alert alert-info">
+         <div class="container pricing-header p-3 pb-md-4 mx-auto text-center"><font style="vertical-align: inherit;"></font><font style="vertical-align: inherit;"><h2>{{el.title}}</h2></font><font style="vertical-align: inherit;"></font></font>
+</div>
+<div class="container pricing-header p-3 pb-md-4 mx-auto text-center"><font style="vertical-align: inherit;"></font><font style="vertical-align: inherit;"><h4>{{el.intro}}</h4></font><font style="vertical-align: inherit;"></font></font>
+</div>
+
+          <p>{{el.text}}</p>
+     <p><b>Дата: {{el.date.date()}}</b></p>
+
+     <a href="/posts/{{el.id}}" class="btn btn-warning" >Детальнее</a>
+     </div>
+     {%endfor%}
+    {%else%}
+    <p>У нас еще нету статей!!!</p>
+    {%endif%}
+
+
+</div>
+
+{%endblock%}
